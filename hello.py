@@ -1,14 +1,16 @@
-# Bloco 1 — saída direta
-print("Hello, World!")
+import tkinter as tk
 
-# Bloco 2 — variável
 name = "Wagner"
-print(name)
 
-# Bloco 3 — função com type hints
 def greet(name: str) -> str:
     return f"Olá, {name}!"
 
-# Bloco 4 — ponto de entrada
+def show_window(message: str) -> None:
+    root = tk.Tk()
+    root.title("Hello World")
+    tk.Label(root, text=message, padx=20, pady=20).pack()
+    tk.Button(root, text="OK", command=root.destroy).pack(pady=10)
+    root.mainloop()
+
 if __name__ == "__main__":
-    print(greet(name))
+    show_window(greet(name))
